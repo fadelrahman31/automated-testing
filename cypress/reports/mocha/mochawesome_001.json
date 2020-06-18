@@ -1,0 +1,145 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2020-06-18T09:39:15.314Z",
+    "end": "2020-06-18T09:39:33.564Z",
+    "duration": 18250,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "ee11d80d-7ac2-4536-ae69-a2d32cb99de0",
+      "title": "",
+      "fullFile": "cypress\\integration\\test-01.js",
+      "file": "cypress\\integration\\test-01.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "e9503755-05f9-40ff-a201-9e6234b5359b",
+          "title": "Test Quipper Home Page - Dashboard",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "#1 Successfully Loads",
+              "fullTitle": "Test Quipper Home Page - Dashboard #1 Successfully Loads",
+              "timedOut": null,
+              "duration": 9283,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://www.quipper.com/id/');",
+              "err": {},
+              "uuid": "39ccd67f-3952-4d83-94bc-7ff20090af3b",
+              "parentUUID": "e9503755-05f9-40ff-a201-9e6234b5359b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "#2 Showing the Correct Components",
+              "fullTitle": "Test Quipper Home Page - Dashboard #2 Showing the Correct Components",
+              "timedOut": null,
+              "duration": 233,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains('Untuk Siswa');\ncy.contains('Untuk Guru');\ncy.contains('Blog');\ncy.contains('Tentang Quipper');\ncy.contains('Login');\ncy.contains('Daftar Sekarang');",
+              "err": {},
+              "uuid": "f9820581-8483-41e2-89e6-e21146f27985",
+              "parentUUID": "e9503755-05f9-40ff-a201-9e6234b5359b",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "#3 Login to Quipper Video",
+              "fullTitle": "Test Quipper Home Page - Dashboard #3 Login to Quipper Video",
+              "timedOut": null,
+              "duration": 6146,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains('Login').click();\ncy.url().should('include', '/en/login'); //cy.get('.TextInput--3Y0H3.Login__Input--26jGQ.form-control--Ijqjw')\ncy.get('[aria-label=\"Username or email\"]').type('fadelrahman10');\ncy.get('[aria-label=\"Password\"').type('nararia3-1');\ncy.contains('Log In').click();",
+              "err": {},
+              "uuid": "07eda4b7-0382-4fdd-a528-6852f486e491",
+              "parentUUID": "e9503755-05f9-40ff-a201-9e6234b5359b",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "39ccd67f-3952-4d83-94bc-7ff20090af3b",
+            "f9820581-8483-41e2-89e6-e21146f27985",
+            "07eda4b7-0382-4fdd-a528-6852f486e491"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 15662,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.1.1"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/reports/mocha",
+        "quite": true,
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "5.1.0"
+    }
+  }
+}
