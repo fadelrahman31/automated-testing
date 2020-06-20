@@ -1,14 +1,14 @@
 {
   "stats": {
     "suites": 2,
-    "tests": 5,
-    "passes": 5,
+    "tests": 7,
+    "passes": 7,
     "pending": 0,
     "failures": 0,
-    "start": "2020-06-18T09:39:38.672Z",
-    "end": "2020-06-18T09:39:38.672Z",
-    "duration": 18605,
-    "testsRegistered": 5,
+    "start": "2020-06-19T07:12:41.573Z",
+    "end": "2020-06-19T07:12:41.573Z",
+    "duration": 29929,
+    "testsRegistered": 7,
     "passPercent": 100,
     "pendingPercent": 0,
     "other": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "ee11d80d-7ac2-4536-ae69-a2d32cb99de0",
+      "uuid": "cfe8a4aa-38b7-44c4-98ec-060ccefe50af",
       "title": "",
       "fullFile": "cypress\\integration\\test-01.js",
       "file": "cypress\\integration\\test-01.js",
@@ -27,8 +27,8 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "e9503755-05f9-40ff-a201-9e6234b5359b",
-          "title": "Test Quipper Home Page - Dashboard",
+          "uuid": "bcb76ab2-4ecc-4fb4-bf0d-7dc6cb119057",
+          "title": "Test Quipper Home Page",
           "fullFile": "",
           "file": "",
           "beforeHooks": [],
@@ -36,9 +36,9 @@
           "tests": [
             {
               "title": "#1 Successfully Loads",
-              "fullTitle": "Test Quipper Home Page - Dashboard #1 Successfully Loads",
+              "fullTitle": "Test Quipper Home Page #1 Successfully Loads",
               "timedOut": null,
-              "duration": 9283,
+              "duration": 9844,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -47,16 +47,16 @@
               "context": null,
               "code": "cy.visit('https://www.quipper.com/id/');",
               "err": {},
-              "uuid": "39ccd67f-3952-4d83-94bc-7ff20090af3b",
-              "parentUUID": "e9503755-05f9-40ff-a201-9e6234b5359b",
+              "uuid": "3cea111c-374d-4274-9ce7-17b68cba88ff",
+              "parentUUID": "bcb76ab2-4ecc-4fb4-bf0d-7dc6cb119057",
               "isHook": false,
               "skipped": false
             },
             {
               "title": "#2 Showing the Correct Components",
-              "fullTitle": "Test Quipper Home Page - Dashboard #2 Showing the Correct Components",
+              "fullTitle": "Test Quipper Home Page #2 Showing the Correct Components",
               "timedOut": null,
-              "duration": 233,
+              "duration": 264,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -65,40 +65,98 @@
               "context": null,
               "code": "cy.contains('Untuk Siswa');\ncy.contains('Untuk Guru');\ncy.contains('Blog');\ncy.contains('Tentang Quipper');\ncy.contains('Login');\ncy.contains('Daftar Sekarang');",
               "err": {},
-              "uuid": "f9820581-8483-41e2-89e6-e21146f27985",
-              "parentUUID": "e9503755-05f9-40ff-a201-9e6234b5359b",
+              "uuid": "a1f2c082-ed54-4df7-89f9-0231aed9eaa8",
+              "parentUUID": "bcb76ab2-4ecc-4fb4-bf0d-7dc6cb119057",
               "isHook": false,
               "skipped": false
             },
             {
-              "title": "#3 Login to Quipper Video",
-              "fullTitle": "Test Quipper Home Page - Dashboard #3 Login to Quipper Video",
+              "title": "#3 Move to Login Page",
+              "fullTitle": "Test Quipper Home Page #3 Move to Login Page",
               "timedOut": null,
-              "duration": 6146,
+              "duration": 8464,
               "state": "passed",
               "speed": "slow",
               "pass": true,
               "fail": false,
               "pending": false,
               "context": null,
-              "code": "cy.contains('Login').click();\ncy.url().should('include', '/en/login'); //cy.get('.TextInput--3Y0H3.Login__Input--26jGQ.form-control--Ijqjw')\ncy.get('[aria-label=\"Username or email\"]').type('fadelrahman10');\ncy.get('[aria-label=\"Password\"').type('nararia3-1');\ncy.contains('Log In').click();",
+              "code": "cy.contains('Login').click();\ncy.url().should('include', '/en/login');",
               "err": {},
-              "uuid": "07eda4b7-0382-4fdd-a528-6852f486e491",
-              "parentUUID": "e9503755-05f9-40ff-a201-9e6234b5359b",
+              "uuid": "780b240c-3b57-4b1a-b516-60ade7fa2c03",
+              "parentUUID": "bcb76ab2-4ecc-4fb4-bf0d-7dc6cb119057",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "39ccd67f-3952-4d83-94bc-7ff20090af3b",
-            "f9820581-8483-41e2-89e6-e21146f27985",
-            "07eda4b7-0382-4fdd-a528-6852f486e491"
+            "3cea111c-374d-4274-9ce7-17b68cba88ff",
+            "a1f2c082-ed54-4df7-89f9-0231aed9eaa8",
+            "780b240c-3b57-4b1a-b516-60ade7fa2c03"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 15662,
+          "duration": 18572,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "0feedf0e-fe62-4076-b241-1ff78e281486",
+          "title": "Test Sign Up Page",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "#1 Successfully Loads",
+              "fullTitle": "Test Sign Up Page #1 Successfully Loads",
+              "timedOut": null,
+              "duration": 6347,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://subscribe.quipper.com/signup/id');",
+              "err": {},
+              "uuid": "12076a6b-5faf-486b-bfe4-8ef645260279",
+              "parentUUID": "0feedf0e-fe62-4076-b241-1ff78e281486",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "#2 Showing The Correct Components",
+              "fullTitle": "Test Sign Up Page #2 Showing The Correct Components",
+              "timedOut": null,
+              "duration": 588,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains('Select your location');\ncy.get('[name= \"country\"]');\ncy.get('.fb-button');\ncy.get('[name= \"firstName\"]');\ncy.get('[name= \"lastName\"]');\ncy.get('[name= \"gradeLevel\"]');\ncy.get('[name = \"phoneNumber\"]');\ncy.get('[name = \"email\"]');\ncy.get('[name = \"username\"]');\ncy.get('[name = \"password\"]');\ncy.get('[name = \"passwordConfirmation\"]');",
+              "err": {},
+              "uuid": "3739de8f-e7d3-4251-891e-1a35795bf390",
+              "parentUUID": "0feedf0e-fe62-4076-b241-1ff78e281486",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "12076a6b-5faf-486b-bfe4-8ef645260279",
+            "3739de8f-e7d3-4251-891e-1a35795bf390"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 6935,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
@@ -114,7 +172,7 @@
       "_timeout": 2000
     },
     {
-      "uuid": "67cbbc00-1f6d-4478-865e-dbe5a4038da0",
+      "uuid": "216185da-cc66-487c-920e-50aac2381ae5",
       "title": "",
       "fullFile": "cypress\\integration\\sample_spec.js",
       "file": "cypress\\integration\\sample_spec.js",
@@ -123,7 +181,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "96273783-e9c9-4cab-9b69-ef700545d151",
+          "uuid": "4a79f362-26ec-4abe-90f1-71e8850f91bf",
           "title": "My First Test",
           "fullFile": "",
           "file": "",
@@ -134,35 +192,35 @@
               "title": "Does not do much!",
               "fullTitle": "My First Test Does not do much!",
               "timedOut": null,
-              "duration": 64,
+              "duration": 149,
               "state": "passed",
-              "speed": "medium",
+              "speed": "slow",
               "pass": true,
               "fail": false,
               "pending": false,
               "context": null,
               "code": "expect(true).to.equal(true);",
               "err": {},
-              "uuid": "d10419ba-3e0c-4660-8bb4-8a64794a8c38",
-              "parentUUID": "96273783-e9c9-4cab-9b69-ef700545d151",
+              "uuid": "ff217084-54f2-4b96-9974-4d8555f4f45d",
+              "parentUUID": "4a79f362-26ec-4abe-90f1-71e8850f91bf",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "d10419ba-3e0c-4660-8bb4-8a64794a8c38"
+            "ff217084-54f2-4b96-9974-4d8555f4f45d"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 64,
+          "duration": 149,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
         },
         {
-          "uuid": "733eea6c-9095-4e5d-8b96-a46bd98c878b",
+          "uuid": "c015371a-f85c-4161-9d4c-c6a30959d55e",
           "title": "Test Visit Web Page",
           "fullFile": "",
           "file": "",
@@ -173,7 +231,7 @@
               "title": "Visits the Kitchen Sink",
               "fullTitle": "Test Visit Web Page Visits the Kitchen Sink",
               "timedOut": null,
-              "duration": 2879,
+              "duration": 4273,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -182,20 +240,20 @@
               "context": null,
               "code": "cy.visit('https://example.cypress.io');\ncy.contains('get');\ncy.contains('children');\ncy.contains('find');\ncy.contains('parent');\ncy.contains('focus');\ncy.contains('type').click(); //check whether the new URL path from click is correct or not\ncy.url().should('include', '/commands/actions'); //input to CSS Components Class\ncy.get('.action-email').type('fake@gmail.com').should('have.value', 'fake@gmail.com');",
               "err": {},
-              "uuid": "9027086c-ccb6-443b-928a-aaa1401138c1",
-              "parentUUID": "733eea6c-9095-4e5d-8b96-a46bd98c878b",
+              "uuid": "3caf2bb7-27de-4cbe-9fb6-9faac3302b26",
+              "parentUUID": "c015371a-f85c-4161-9d4c-c6a30959d55e",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "9027086c-ccb6-443b-928a-aaa1401138c1"
+            "3caf2bb7-27de-4cbe-9fb6-9faac3302b26"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 2879,
+          "duration": 4273,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
