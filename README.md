@@ -35,6 +35,7 @@ $ npm install cypress --save-dev
 ```
 
 ### Run the Program
+There are two alternatives method to run this program, either to opened it in Cypress GUI Mode or in Browser from local HTML test report.
 
 #### Run in Cypress GUI Mode
 ```bash
