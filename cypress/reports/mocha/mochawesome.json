@@ -1,119 +1,23 @@
 {
   "stats": {
-    "suites": 2,
-    "tests": 2,
-    "passes": 2,
+    "suites": 0,
+    "tests": 0,
+    "passes": 0,
     "pending": 0,
     "failures": 0,
-    "start": "2020-06-19T07:11:52.772Z",
-    "end": "2020-06-19T07:12:00.482Z",
-    "duration": 7710,
-    "testsRegistered": 2,
-    "passPercent": 100,
-    "pendingPercent": 0,
+    "start": "2020-06-22T06:45:17.187Z",
+    "end": "2020-06-22T06:45:17.191Z",
+    "duration": 4,
+    "testsRegistered": 0,
+    "passPercent": null,
+    "pendingPercent": null,
     "other": 0,
     "hasOther": false,
     "skipped": 0,
     "hasSkipped": false
   },
   "results": [
-    {
-      "uuid": "216185da-cc66-487c-920e-50aac2381ae5",
-      "title": "",
-      "fullFile": "cypress\\integration\\sample_spec.js",
-      "file": "cypress\\integration\\sample_spec.js",
-      "beforeHooks": [],
-      "afterHooks": [],
-      "tests": [],
-      "suites": [
-        {
-          "uuid": "4a79f362-26ec-4abe-90f1-71e8850f91bf",
-          "title": "My First Test",
-          "fullFile": "",
-          "file": "",
-          "beforeHooks": [],
-          "afterHooks": [],
-          "tests": [
-            {
-              "title": "Does not do much!",
-              "fullTitle": "My First Test Does not do much!",
-              "timedOut": null,
-              "duration": 149,
-              "state": "passed",
-              "speed": "slow",
-              "pass": true,
-              "fail": false,
-              "pending": false,
-              "context": null,
-              "code": "expect(true).to.equal(true);",
-              "err": {},
-              "uuid": "ff217084-54f2-4b96-9974-4d8555f4f45d",
-              "parentUUID": "4a79f362-26ec-4abe-90f1-71e8850f91bf",
-              "isHook": false,
-              "skipped": false
-            }
-          ],
-          "suites": [],
-          "passes": [
-            "ff217084-54f2-4b96-9974-4d8555f4f45d"
-          ],
-          "failures": [],
-          "pending": [],
-          "skipped": [],
-          "duration": 149,
-          "root": false,
-          "rootEmpty": false,
-          "_timeout": 2000
-        },
-        {
-          "uuid": "c015371a-f85c-4161-9d4c-c6a30959d55e",
-          "title": "Test Visit Web Page",
-          "fullFile": "",
-          "file": "",
-          "beforeHooks": [],
-          "afterHooks": [],
-          "tests": [
-            {
-              "title": "Visits the Kitchen Sink",
-              "fullTitle": "Test Visit Web Page Visits the Kitchen Sink",
-              "timedOut": null,
-              "duration": 4273,
-              "state": "passed",
-              "speed": "slow",
-              "pass": true,
-              "fail": false,
-              "pending": false,
-              "context": null,
-              "code": "cy.visit('https://example.cypress.io');\ncy.contains('get');\ncy.contains('children');\ncy.contains('find');\ncy.contains('parent');\ncy.contains('focus');\ncy.contains('type').click(); //check whether the new URL path from click is correct or not\ncy.url().should('include', '/commands/actions'); //input to CSS Components Class\ncy.get('.action-email').type('fake@gmail.com').should('have.value', 'fake@gmail.com');",
-              "err": {},
-              "uuid": "3caf2bb7-27de-4cbe-9fb6-9faac3302b26",
-              "parentUUID": "c015371a-f85c-4161-9d4c-c6a30959d55e",
-              "isHook": false,
-              "skipped": false
-            }
-          ],
-          "suites": [],
-          "passes": [
-            "3caf2bb7-27de-4cbe-9fb6-9faac3302b26"
-          ],
-          "failures": [],
-          "pending": [],
-          "skipped": [],
-          "duration": 4273,
-          "root": false,
-          "rootEmpty": false,
-          "_timeout": 2000
-        }
-      ],
-      "passes": [],
-      "failures": [],
-      "pending": [],
-      "skipped": [],
-      "duration": 0,
-      "root": true,
-      "rootEmpty": true,
-      "_timeout": 2000
-    }
+    false
   ],
   "meta": {
     "mocha": {

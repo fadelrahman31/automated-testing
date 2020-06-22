@@ -1,0 +1,107 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2020-06-22T06:46:13.620Z",
+    "end": "2020-06-22T06:46:13.793Z",
+    "duration": 173,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "efcd4d1f-8cbb-465f-9429-bc7880f455c1",
+      "title": "",
+      "fullFile": "cypress\\integration\\id-subscribeProcess.js",
+      "file": "cypress\\integration\\id-subscribeProcess.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "1c62f395-32c2-4f0e-927a-b7ffcc32eb12",
+          "title": "Test Subscribe Process",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "#1 Subscribtion Banner",
+              "fullTitle": "Test Subscribe Process #1 Subscribtion Banner",
+              "timedOut": null,
+              "duration": 39,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "",
+              "err": {},
+              "uuid": "dfa7ebd6-1c78-4cb2-b243-fa7b87c90b97",
+              "parentUUID": "1c62f395-32c2-4f0e-927a-b7ffcc32eb12",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "dfa7ebd6-1c78-4cb2-b243-fa7b87c90b97"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 39,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.1.1"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/reports/mocha",
+        "quite": true,
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "5.1.0"
+    }
+  }
+}

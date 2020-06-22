@@ -1,0 +1,146 @@
+{
+  "stats": {
+    "suites": 2,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2020-06-22T06:46:16.585Z",
+    "end": "2020-06-22T06:46:21.793Z",
+    "duration": 5208,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "795bebe0-2e17-4828-8a23-9e7ef9b47c64",
+      "title": "",
+      "fullFile": "cypress\\integration\\sample_spec.js",
+      "file": "cypress\\integration\\sample_spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "74c745a4-fb7a-4fab-8094-b57fa18c570b",
+          "title": "My First Test",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Does not do much!",
+              "fullTitle": "My First Test Does not do much!",
+              "timedOut": null,
+              "duration": 39,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "expect(true).to.equal(true);",
+              "err": {},
+              "uuid": "9dd62f8e-bd95-493d-8aaf-b0f5d8eeb954",
+              "parentUUID": "74c745a4-fb7a-4fab-8094-b57fa18c570b",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "9dd62f8e-bd95-493d-8aaf-b0f5d8eeb954"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 39,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "89571030-baa3-4eda-bc89-74cbc6207cf5",
+          "title": "Test Visit Web Page",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Visits the Kitchen Sink",
+              "fullTitle": "Test Visit Web Page Visits the Kitchen Sink",
+              "timedOut": null,
+              "duration": 2727,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://example.cypress.io');\ncy.contains('get');\ncy.contains('children');\ncy.contains('find');\ncy.contains('parent');\ncy.contains('focus');\ncy.contains('type').click(); //check whether the new URL path from click is correct or not\ncy.url().should('include', '/commands/actions'); //input to CSS Components Class\ncy.get('.action-email').type('fake@gmail.com').should('have.value', 'fake@gmail.com');",
+              "err": {},
+              "uuid": "f16adaac-d8f9-447c-b334-6246ce0097ee",
+              "parentUUID": "89571030-baa3-4eda-bc89-74cbc6207cf5",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "f16adaac-d8f9-447c-b334-6246ce0097ee"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 2727,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.1.1"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/reports/mocha",
+        "quite": true,
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "5.1.0"
+    }
+  }
+}
