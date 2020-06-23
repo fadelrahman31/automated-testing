@@ -47,4 +47,7 @@ $ npm run cypress:open
 $ npm run test
 ```
 
-After the program is finished, go to `<root-project>/cypress/reports/mochareports` and open `report.html`
+After the program is finished, go to `<root-project>/cypress/reports/mochareports` and open `report.html`\
+There are also several other outputs, such as:
+- Test Result JSON Files in `<root-project>/cypress/reports/mocha`
+- Recorded Testing Videos in `<root-project>/cypress/videos`
