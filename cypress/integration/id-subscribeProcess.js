@@ -16,12 +16,12 @@ describe("Test Subscribe Process", () => {
         cy.contains('Home')
         cy.contains('Course List')
         cy.contains('My Courses')
-        cy.get('.Avatar--2txd-').click()
+        cy.get('.AvatarMenu__Toggle--kz3Cn').click()
         cy.contains('Profile')
         cy.contains('Subscriptions')
         cy.contains('Search campuses')
         cy.contains('Logout')
-        cy.get('.Avatar--2txd-').click()
+        cy.get('.AvatarMenu__Toggle--kz3Cn').click()
         //Upsell Banner
         cy.get('.UpsellBanner--2x5p2')
         cy.contains('Pilih Paket')
@@ -31,15 +31,16 @@ describe("Test Subscribe Process", () => {
         cy.contains('Subscribe now')
     }),
     it("#3 Avatar Button Menu Functionality", () => {
-        cy.get('.Avatar--2txd-').click()
+        cy.get('.AvatarMenu__Toggle--kz3Cn').click()
         cy.contains('Profile').click()
         cy.url().should('include', '/en/settings/profile')
         cy.contains('Home').click()
         cy.url().should('include', '/dashboard')
-        cy.get('.Avatar--2txd-').click()
-        cy.contains('Subscriptions').click()
-        cy.url().should('include', '/plans')
-        cy.contains('Back to learning app').click()
-        cy.url().should('include', '/dashboard')
+        cy.wait(1000)
+        cy.get('.AvatarMenu__Toggle--kz3Cn').click()
+        cy.contains('Subscriptions').should('have.attr', 'target', '_blank')
+    }),
+    it("#4 ", () => {
+      
     })
 })
