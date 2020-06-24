@@ -31,6 +31,7 @@ describe("Test Subscribe Process", () => {
         cy.contains('Subscribe now')
     }),
     it("#3 Avatar Button Menu Functionality", () => {
+        cy.wait(1000)
         cy.get('.AvatarMenu__Toggle--kz3Cn').click()
         cy.contains('Profile').click()
         cy.url().should('include', '/en/settings/profile')
@@ -40,7 +41,56 @@ describe("Test Subscribe Process", () => {
         cy.get('.AvatarMenu__Toggle--kz3Cn').click()
         cy.contains('Subscriptions').should('have.attr', 'target', '_blank')
     }),
-    it("#4 ", () => {
-      
+    it("#4 Create Subscription - Upsell Banner & Subscribe Now Banner - Payment Method Page", () => {
+        cy.contains('Pilih Paket').should('have.attr', 'href', Cypress.env('quipper_upsell_short'))
+        cy.contains('Subscribe now').should('have.attr', 'href', Cypress.env('quipper_plans'))
+        cy.visit(Cypress.env('quipper_upsell'))
+        cy.url().should('include','/plans')
+
+        //Test the `Select a Plan` Page
+        cy.get('.PricingPlansWeb__redeem_activation')
+        cy.get('[id="category-btn-SMA"]').click()
+        cy.get('[id="category-2"]').should('have.class', 'PricingPlans')
+        cy.get('[id="category-btn-SMP"]').click()
+        cy.get('[id="category-1"]').should('have.class', 'PricingPlans')
+        cy.get('[id="category-btn-SMA"]').click()
+
+        //Test `Subscribe` Button Each Pricing Plan
+        cy.get('[id="1808"]').within(() => {
+            cy.contains('Subscribe').click()
+        })
+        cy.contains('Back').click()
+        
+        cy.wait(1000)
+        cy.get('[id="1809"]').within(() => {
+            cy.contains('Subscribe').click()
+        })
+        cy.contains('Back').click()
+        
+        cy.wait(1000)
+        cy.get('[id="1810"]').within(() => {
+            cy.contains('Subscribe').click()
+        })
+        cy.contains('Back').click()
+
+        //Test the `Payment Method Page`
+        cy.get('[id="1808"]').within(() => {
+            cy.get('.PricingPlan__title').then(($title) => {
+                const txt = $title.text()
+                cy.wrap(txt).as('planName')
+                cy.contains('Subscribe').click()
+            })            
+            
+        })
+        cy.url().should('include', '/payment/methods')
+        cy.get('.SubscriptionPlanName').then(($judul) => {
+            const text = $judul.text()
+            cy.wrap(text).as('planNamePayment')
+        })
+        cy.get('@planName').then(planName => {
+            cy.get('@planNamePayment').then(planNamePayment => {
+                expect(planName).to.equal(planNamePayment)
+            })        
+        })  
     })
 })
