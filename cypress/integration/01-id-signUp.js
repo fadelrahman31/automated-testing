@@ -49,9 +49,9 @@ describe("Test Sign Up Page", () => {
       cy.get('[name="country"]')
         .select('id')
       cy.url().should('include', '/signup/id')
-      cy.get('[name="country"]')
-        .select('mx')
-      cy.url().should('include', '/signup/mx')
+      // cy.get('[name="country"]')
+      //   .select('mx')
+      // cy.url().should('include', '/signup/mx')
   }),
   it("#5 Input Field Validation - Name", () => {
       cy.get('[name="firstName"]')
