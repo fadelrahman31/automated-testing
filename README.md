@@ -41,11 +41,18 @@ There are two alternatives method to run this program, either to opened it in Cy
 ```bash
 $ npm run cypress:open
 ```
+Here's how it's gonna look like: \
+\
+![](https://i.ibb.co/jHD0RqZ/cypress-GUI.png)
+![](https://i.ibb.co/WWsp3TJ/cypress-testing.png)
 
 #### Run to Generate Local HTML Test Report
 ```bash
 $ npm run test
 ```
+Here's how it's gonna look like: \
+\
+![](https://i.ibb.co/L9Zvcb3/mochawesome-reports.png)
 
 After the program is finished, go to `<root-project>/cypress/reports/mochareports` and open `report.html`\
 There are also several other outputs, such as:
