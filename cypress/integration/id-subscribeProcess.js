@@ -41,10 +41,18 @@ describe("Test Subscribe Process", () => {
         cy.get('.AvatarMenu__Toggle--kz3Cn').click()
         cy.contains('Subscriptions').should('have.attr', 'target', '_blank')
     }),
-    it("#4 Create Subscription - Upsell Banner & Subscribe Now Banner - Payment Method Page", () => {
+    it("#4 Upsell Banner Functionality",() => {
         cy.contains('Pilih Paket').should('have.attr', 'href', Cypress.env('quipper_upsell_short'))
-        cy.contains('Subscribe now').should('have.attr', 'href', Cypress.env('quipper_plans'))
         cy.visit(Cypress.env('quipper_upsell'))
+        cy.url().should('include','/plans')
+    }),
+    it("#5 Susbcribe Now Banner Functionality", () => {
+        cy.contains('Subscribe now').should('have.attr', 'href', Cypress.env('quipper_plans'))
+        cy.visit(Cypress.env('quipper_plans'))
+        cy.url().should('include', '/plans')
+    }),
+    it("#6 Select a Plan Page Functionality", () => {
+        cy.visit(Cypress.env('quipper_plans'))
         cy.url().should('include','/plans')
 
         //Test the `Select a Plan` Page
@@ -54,6 +62,16 @@ describe("Test Subscribe Process", () => {
         cy.get('[id="category-btn-SMP"]').click()
         cy.get('[id="category-1"]').should('have.class', 'PricingPlans')
         cy.get('[id="category-btn-SMA"]').click()
+        cy.get('.PricingPlansWeb__redeem_activation').should('have.attr', 'href', '/activationcode')
+        cy.get('.PricingPlansWeb__redeem_activation').click()
+        cy.url().should('include', 'activationcode')
+        cy.contains('Subscriptions').click()
+        cy.url().should('include', '/plans')
+
+    }),
+    it("#7 Subscribe Button Functionality ", () => {   
+        cy.visit(Cypress.env('quipper_plans'))
+        cy.url().should('include','/plans')
 
         //Test `Subscribe` Button Each Pricing Plan
         cy.get('[id="1808"]').within(() => {
@@ -72,25 +90,137 @@ describe("Test Subscribe Process", () => {
             cy.contains('Subscribe').click()
         })
         cy.contains('Back').click()
+    }),
+    it("#8 Paket Intensif SMA Integration with Payment Method Page", () => {
+        cy.visit(Cypress.env('quipper_plans'))
+        cy.url().should('include','/plans')
 
-        //Test the `Payment Method Page`
+        //Test the `Payment Method Page` Integration with Pricing 
         cy.get('[id="1808"]').within(() => {
+            //Get the Pricing Plan Title from Select a Plan Page
             cy.get('.PricingPlan__title').then(($title) => {
                 const txt = $title.text()
                 cy.wrap(txt).as('planName')
-                cy.contains('Subscribe').click()
             })            
-            
+            //Get the Price from Select a Plan page
+            cy.get('.PricingPlan__price').then(($price) => {
+                const prc = $price.text()
+                cy.wrap(prc).as('planPrice')
+            })
+            cy.contains('Subscribe').click()
         })
+
         cy.url().should('include', '/payment/methods')
+        //Get the Pricing Plan Title from Payment Method Page
         cy.get('.SubscriptionPlanName').then(($judul) => {
             const text = $judul.text()
             cy.wrap(text).as('planNamePayment')
         })
+        //Get the Pricing Plan Price from Payment Method Page
+        cy.get('.Amount__final').then(($harga) => {
+            const hrg = $harga.text()
+            cy.wrap(hrg).as('planPricePayment')
+        })
+
+        //Validate on Pricing Plan Title Data
         cy.get('@planName').then(planName => {
             cy.get('@planNamePayment').then(planNamePayment => {
                 expect(planName).to.equal(planNamePayment)
             })        
-        })  
+        }) 
+        //Validate on Pricing Plan Price Data
+        cy.get('@planPrice').then(planPrice => {
+            cy.get('@planPricePayment'). then(planPricePayment => {
+                expect(planPrice).to.equal(planPricePayment)
+            })
+        }) 
+    }),
+    it("#9 Paket Regular SMA Integration with Payment Method Page", () => {
+        cy.visit(Cypress.env('quipper_plans'))
+        cy.url().should('include','/plans')
+
+        //Test the `Payment Method Page` Integration with Pricing 
+        cy.get('[id="1809"]').within(() => {
+            //Get the Pricing Plan Title from Select a Plan Page
+            cy.get('.PricingPlan__title').then(($title) => {
+                const txt = $title.text()
+                cy.wrap(txt).as('planName')
+            })            
+            //Get the Price from Select a Plan page
+            cy.get('.PricingPlan__price').then(($price) => {
+                const prc = $price.text()
+                cy.wrap(prc).as('planPrice')
+            })
+            cy.contains('Subscribe').click()
+        })
+
+        cy.url().should('include', '/payment/methods')
+        //Get the Pricing Plan Title from Payment Method Page
+        cy.get('.SubscriptionPlanName').then(($judul) => {
+            const text = $judul.text()
+            cy.wrap(text).as('planNamePayment')
+        })
+        //Get the Pricing Plan Price from Payment Method Page
+        cy.get('.Amount__final').then(($harga) => {
+            const hrg = $harga.text()
+            cy.wrap(hrg).as('planPricePayment')
+        })
+
+        //Validate on Pricing Plan Title Data
+        cy.get('@planName').then(planName => {
+            cy.get('@planNamePayment').then(planNamePayment => {
+                expect(planName).to.equal(planNamePayment)
+            })        
+        }) 
+        //Validate on Pricing Plan Price Data
+        cy.get('@planPrice').then(planPrice => {
+            cy.get('@planPricePayment'). then(planPricePayment => {
+                expect(planPrice).to.equal(planPricePayment)
+            })
+        }) 
+    }),
+    it("#10 Paket Intensif SMA + 3 Bulan Masterclass Integration with Payment Method Page", () => {
+        cy.visit(Cypress.env('quipper_plans'))
+        cy.url().should('include','/plans')
+
+        //Test the `Payment Method Page` Integration with Pricing 
+        cy.get('[id="1810"]').within(() => {
+            //Get the Pricing Plan Title from Select a Plan Page
+            cy.get('.PricingPlan__title').then(($title) => {
+                const txt = $title.text()
+                cy.wrap(txt).as('planName')
+            })            
+            //Get the Price from Select a Plan page
+            cy.get('.PricingPlan__price').then(($price) => {
+                const prc = $price.text()
+                cy.wrap(prc).as('planPrice')
+            })
+            cy.contains('Subscribe').click()
+        })
+
+        cy.url().should('include', '/payment/methods')
+        //Get the Pricing Plan Title from Payment Method Page
+        cy.get('.SubscriptionPlanName').then(($judul) => {
+            const text = $judul.text()
+            cy.wrap(text).as('planNamePayment')
+        })
+        //Get the Pricing Plan Price from Payment Method Page
+        cy.get('.Amount__final').then(($harga) => {
+            const hrg = $harga.text()
+            cy.wrap(hrg).as('planPricePayment')
+        })
+
+        //Validate on Pricing Plan Title Data
+        cy.get('@planName').then(planName => {
+            cy.get('@planNamePayment').then(planNamePayment => {
+                expect(planName).to.equal(planNamePayment)
+            })        
+        }) 
+        //Validate on Pricing Plan Price Data
+        cy.get('@planPrice').then(planPrice => {
+            cy.get('@planPricePayment'). then(planPricePayment => {
+                expect(planPrice).to.equal(planPricePayment)
+            })
+        }) 
     })
 })
