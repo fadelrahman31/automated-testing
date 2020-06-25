@@ -37,6 +37,10 @@ describe("Test Payment Process", () => {
         cy.get('[value="CIMBVA"]')
         cy.get('[value="BIIVA"]')
         cy.get('[value="BANK_OTHER"]')
+        cy.get('.Input--disabled')
+        cy.contains('Apply')
+        cy.contains('Continue Payment')
+
     }),
     it("#3 Validate Alfamart as Payment Method", () => {
         cy.visit(Cypress.env('quipper_plans'))
@@ -188,6 +192,17 @@ describe("Test Payment Process", () => {
         cy.get('@chosenMethod').then(chosenMethod => {
             expect(chosenMethod).to.equal("Other Banks")
         })
+    }),
+    it("#12 Test on Transitions to Payment Inforation Page", () => {
+        cy.visit(Cypress.env('quipper_plans'))
+        cy.get('[id="1808"]').within(() => {
+            cy.contains('Subscribe').click()
+        })
+        
+        //On the Payment Method Page
+        
+        
+
     })
     
 })
