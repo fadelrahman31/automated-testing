@@ -1,99 +1,23 @@
 {
   "stats": {
-    "suites": 1,
-    "tests": 2,
-    "passes": 2,
+    "suites": 0,
+    "tests": 0,
+    "passes": 0,
     "pending": 0,
     "failures": 0,
-    "start": "2020-06-25T10:41:03.107Z",
-    "end": "2020-06-25T10:41:35.623Z",
-    "duration": 32516,
-    "testsRegistered": 2,
-    "passPercent": 100,
-    "pendingPercent": 0,
+    "start": "2020-06-26T02:27:43.088Z",
+    "end": "2020-06-26T02:27:43.104Z",
+    "duration": 16,
+    "testsRegistered": 0,
+    "passPercent": null,
+    "pendingPercent": null,
     "other": 0,
     "hasOther": false,
     "skipped": 0,
     "hasSkipped": false
   },
   "results": [
-    {
-      "uuid": "67783474-efb5-4f86-866a-4c2f528babf4",
-      "title": "",
-      "fullFile": "cypress\\integration\\04-id-redeemActivationCode.js",
-      "file": "cypress\\integration\\04-id-redeemActivationCode.js",
-      "beforeHooks": [],
-      "afterHooks": [],
-      "tests": [],
-      "suites": [
-        {
-          "uuid": "18c4cf9f-e47f-4102-9c0b-b810ae6f896f",
-          "title": "Test Redeem Activation Code Process",
-          "fullFile": "",
-          "file": "",
-          "beforeHooks": [],
-          "afterHooks": [],
-          "tests": [
-            {
-              "title": "#1 Redeem Activation Code Page Loads Successfully",
-              "fullTitle": "Test Redeem Activation Code Process #1 Redeem Activation Code Page Loads Successfully",
-              "timedOut": null,
-              "duration": 17770,
-              "state": "passed",
-              "speed": "slow",
-              "pass": true,
-              "fail": false,
-              "pending": false,
-              "context": null,
-              "code": "cy.get('.AvatarMenu__Toggle--kz3Cn').click();\ncy.contains('Subscriptions').should('have.attr', 'href', Cypress.env('quipper_subscription'));\ncy.visit(Cypress.env('quipper_subscription'));\ncy.url().should('include', '/plans');\ncy.get('.PricingPlansWeb__redeem_activation').click();\ncy.url().should('include', '/activationcode');",
-              "err": {},
-              "uuid": "9df64f9f-4acb-4e9f-98d7-fe190948c16e",
-              "parentUUID": "18c4cf9f-e47f-4102-9c0b-b810ae6f896f",
-              "isHook": false,
-              "skipped": false
-            },
-            {
-              "title": "#2 Page Showing Correct Components",
-              "fullTitle": "Test Redeem Activation Code Process #2 Page Showing Correct Components",
-              "timedOut": null,
-              "duration": 12118,
-              "state": "passed",
-              "speed": "slow",
-              "pass": true,
-              "fail": false,
-              "pending": false,
-              "context": null,
-              "code": "cy.get('.AvatarMenu__Toggle--kz3Cn').click();\ncy.contains('Subscriptions').should('have.attr', 'href', Cypress.env('quipper_subscription'));\ncy.visit(Cypress.env('quipper_subscription'));\ncy.url().should('include', '/plans');\ncy.get('.PricingPlansWeb__redeem_activation').click(); //Test the correct components\ncy.get('[name=\"activationCode\"]');\ncy.contains('Activate');\ncy.contains('Back to learning app');\ncy.contains('Subscriptions').should('have.attr', 'href', '/subscriptions');\ncy.contains('Orders').should('have.attr', 'href', '/orders');",
-              "err": {},
-              "uuid": "36d8f8ce-f037-4823-8e77-3bb499492271",
-              "parentUUID": "18c4cf9f-e47f-4102-9c0b-b810ae6f896f",
-              "isHook": false,
-              "skipped": false
-            }
-          ],
-          "suites": [],
-          "passes": [
-            "9df64f9f-4acb-4e9f-98d7-fe190948c16e",
-            "36d8f8ce-f037-4823-8e77-3bb499492271"
-          ],
-          "failures": [],
-          "pending": [],
-          "skipped": [],
-          "duration": 29888,
-          "root": false,
-          "rootEmpty": false,
-          "_timeout": 2000
-        }
-      ],
-      "passes": [],
-      "failures": [],
-      "pending": [],
-      "skipped": [],
-      "duration": 0,
-      "root": true,
-      "rootEmpty": true,
-      "_timeout": 2000
-    }
+    false
   ],
   "meta": {
     "mocha": {

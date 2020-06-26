@@ -200,9 +200,48 @@ describe("Test Payment Process", () => {
         })
         
         //On the Payment Method Page
-        
-        
+        cy.contains('Continue Payment').click()
 
+        //On the Payment Information Page
+        cy.url().should('include', '/payment/information')
+    }),
+    it("#13 Payment Information Page Showing Correct Components", () => {
+        cy.visit(Cypress.env('quipper_plans'))
+        cy.get('[id="1808"]').within(() => {
+            cy.contains('Subscribe').click()
+        })
+
+        //On the Payment Method Page
+        cy.contains('Continue Payment').click()
+        
+        //On the Payment Information Page
+        cy.contains('Payment Method').should('have.class', 'Step')
+        cy.contains('Payment Information').should('have.class', 'Step__active')      
+        cy.contains('Payer Name')
+        cy.get('[name = "name"]')
+        cy.contains('Payer Email Address')
+        cy.get('[name = "email"]')
+        cy.contains('Payer Phone Number')
+        cy.get('[name = "phone"]')
+        cy.contains('Complete Payment')
+    }),
+    it("#14 Input Field Validation - Email", () => {
+        cy.visit(Cypress.env('quipper_plans'))
+        cy.get('[id="1808"]').within(() => {
+            cy.contains('Subscribe').click()
+        })
+
+        //On the Payment Method Page
+        cy.contains('Continue Payment').click()
+
+        //On the Payment Information Page
+        cy.contains('Email is required.')
+        cy.get('[name="email"]')
+          .type('1213aSAS;;;;')
+        cy.contains('Please enter email in the correct format.')
+        cy.get('[name="email"]')
+          .type('{del}{selectall}{backspace}')
+        cy.contains('Email is required.')
     })
     
 })

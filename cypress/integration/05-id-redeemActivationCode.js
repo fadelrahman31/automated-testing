@@ -30,5 +30,19 @@ describe("Test Redeem Activation Code Process", () => {
         cy.contains('Back to learning app')
         cy.contains('Subscriptions').should('have.attr', 'href', '/subscriptions')
         cy.contains('Orders').should('have.attr', 'href', '/orders')
+    }),
+    it("#3 Input Field Validation - Activation Code", () => {
+        cy.visit(Cypress.env('quipper_subscription'))
+        cy.url().should('include', '/plans')
+        cy.get('.PricingPlansWeb__redeem_activation').click()
+
+        cy.get('[name = "activationCode"]')
+          .type('ASDA123')
+        cy.contains('Activate').should('be.disabled')
+        cy.get('[name="activationCode"]')
+          .type('{del}{selectall}{backspace}')
+        cy.get('[name="activationCode"]')
+          .type('ASDASK233SDAS12S')
+          cy.contains('Activate').should('not.be.disabled')
     })
 })
