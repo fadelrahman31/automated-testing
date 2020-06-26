@@ -5,9 +5,9 @@
     "passes": 3,
     "pending": 0,
     "failures": 0,
-    "start": "2020-06-26T02:27:45.985Z",
-    "end": "2020-06-26T02:28:29.345Z",
-    "duration": 43360,
+    "start": "2020-06-26T03:54:24.452Z",
+    "end": "2020-06-26T03:55:21.400Z",
+    "duration": 56948,
     "testsRegistered": 3,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "ae073714-4d5f-481c-95e8-09e289d6a181",
+      "uuid": "4f23e200-cd79-4123-a74b-a1fe130f0a3d",
       "title": "",
       "fullFile": "cypress\\integration\\05-id-redeemActivationCode.js",
       "file": "cypress\\integration\\05-id-redeemActivationCode.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "9df9ea49-4e0d-4b51-a5a7-4d7a24d1200d",
+          "uuid": "a849096a-a5b3-4f97-9119-554870179907",
           "title": "Test Redeem Activation Code Process",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "#1 Redeem Activation Code Page Loads Successfully",
               "fullTitle": "Test Redeem Activation Code Process #1 Redeem Activation Code Page Loads Successfully",
               "timedOut": null,
-              "duration": 15631,
+              "duration": 24261,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -47,8 +47,8 @@
               "context": null,
               "code": "cy.get('.AvatarMenu__Toggle--kz3Cn').click();\ncy.contains('Subscriptions').should('have.attr', 'href', Cypress.env('quipper_subscription'));\ncy.visit(Cypress.env('quipper_subscription'));\ncy.url().should('include', '/plans');\ncy.get('.PricingPlansWeb__redeem_activation').click();\ncy.url().should('include', '/activationcode');",
               "err": {},
-              "uuid": "9b84b3aa-0836-4c00-81f7-a19783b96a5a",
-              "parentUUID": "9df9ea49-4e0d-4b51-a5a7-4d7a24d1200d",
+              "uuid": "dfb332e8-7267-4714-b0d6-8c6ffd7b90c7",
+              "parentUUID": "a849096a-a5b3-4f97-9119-554870179907",
               "isHook": false,
               "skipped": false
             },
@@ -56,7 +56,7 @@
               "title": "#2 Page Showing Correct Components",
               "fullTitle": "Test Redeem Activation Code Process #2 Page Showing Correct Components",
               "timedOut": null,
-              "duration": 12479,
+              "duration": 17628,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -65,8 +65,8 @@
               "context": null,
               "code": "cy.get('.AvatarMenu__Toggle--kz3Cn').click();\ncy.contains('Subscriptions').should('have.attr', 'href', Cypress.env('quipper_subscription'));\ncy.visit(Cypress.env('quipper_subscription'));\ncy.url().should('include', '/plans');\ncy.get('.PricingPlansWeb__redeem_activation').click(); //Test the correct components\ncy.get('[name=\"activationCode\"]');\ncy.contains('Activate');\ncy.contains('Back to learning app');\ncy.contains('Subscriptions').should('have.attr', 'href', '/subscriptions');\ncy.contains('Orders').should('have.attr', 'href', '/orders');",
               "err": {},
-              "uuid": "03ce0e9d-d06e-48fb-881a-0aafba615a3f",
-              "parentUUID": "9df9ea49-4e0d-4b51-a5a7-4d7a24d1200d",
+              "uuid": "a1f35cdd-d09f-49b5-977b-054d28951950",
+              "parentUUID": "a849096a-a5b3-4f97-9119-554870179907",
               "isHook": false,
               "skipped": false
             },
@@ -74,7 +74,7 @@
               "title": "#3 Input Field Validation - Activation Code",
               "fullTitle": "Test Redeem Activation Code Process #3 Input Field Validation - Activation Code",
               "timedOut": null,
-              "duration": 12235,
+              "duration": 12216,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -83,22 +83,22 @@
               "context": null,
               "code": "cy.visit(Cypress.env('quipper_subscription'));\ncy.url().should('include', '/plans');\ncy.get('.PricingPlansWeb__redeem_activation').click();\ncy.get('[name = \"activationCode\"]').type('ASDA123');\ncy.contains('Activate').should('be.disabled');\ncy.get('[name=\"activationCode\"]').type('{del}{selectall}{backspace}');\ncy.get('[name=\"activationCode\"]').type('ASDASK233SDAS12S');\ncy.contains('Activate').should('not.be.disabled');",
               "err": {},
-              "uuid": "d001a276-3363-4fc5-83ec-6c59ed0060a5",
-              "parentUUID": "9df9ea49-4e0d-4b51-a5a7-4d7a24d1200d",
+              "uuid": "cdf47edc-dba8-433b-9d56-1c04313de86a",
+              "parentUUID": "a849096a-a5b3-4f97-9119-554870179907",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "9b84b3aa-0836-4c00-81f7-a19783b96a5a",
-            "03ce0e9d-d06e-48fb-881a-0aafba615a3f",
-            "d001a276-3363-4fc5-83ec-6c59ed0060a5"
+            "dfb332e8-7267-4714-b0d6-8c6ffd7b90c7",
+            "a1f35cdd-d09f-49b5-977b-054d28951950",
+            "cdf47edc-dba8-433b-9d56-1c04313de86a"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 40345,
+          "duration": 54105,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
