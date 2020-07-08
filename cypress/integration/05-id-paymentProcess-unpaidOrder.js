@@ -10,6 +10,8 @@ describe("Test Payment Process on Unpaid Order", () => {
     })
 
     //TO-DO
-
+    it("#1 Try to check the order status", () => {
+      cy.visit(Cypress.env('quipper_subscription'))
+    })
 
 })
