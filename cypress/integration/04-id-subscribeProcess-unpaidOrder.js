@@ -10,6 +10,7 @@ describe("Test Subscribe Process on Unpaid Order", () => {
     })
 
     it("#1 Dashboard Showing the Correct Components", () => {
+        cy.wait(1000)
         cy.contains('Complete your payment to access the learning materials')
         cy.contains('Check your order')
         cy.get('.AvatarMenu__Toggle--kz3Cn').click()

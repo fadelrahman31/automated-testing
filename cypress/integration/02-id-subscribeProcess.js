@@ -14,14 +14,19 @@ describe("Test Subscribe Process", () => {
     }),
     it("#2 Dashboard Showing Correct Components", () => {
         cy.contains('Home')
+        cy.wait(500)
         cy.contains('Course List')
         cy.contains('My Courses')
+        cy.wait(500)
         cy.get('.AvatarMenu__Toggle--kz3Cn').click()
+        cy.wait(500)
         cy.contains('Profile')
         cy.contains('Subscriptions')
         cy.contains('Search campuses')
         cy.contains('Logout')
+        cy.wait(500)
         cy.get('.AvatarMenu__Toggle--kz3Cn').click()
+        cy.wait(500)
         //Upsell Banner
         cy.get('.UpsellBanner--2x5p2')
         cy.contains('Pilih Paket')

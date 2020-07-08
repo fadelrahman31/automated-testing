@@ -1,23 +1,118 @@
 {
   "stats": {
-    "suites": 0,
-    "tests": 0,
-    "passes": 0,
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
     "pending": 0,
     "failures": 0,
-    "start": "2020-06-26T03:54:21.594Z",
-    "end": "2020-06-26T03:54:21.610Z",
-    "duration": 16,
-    "testsRegistered": 0,
-    "passPercent": null,
-    "pendingPercent": null,
+    "start": "2020-07-08T05:25:44.145Z",
+    "end": "2020-07-08T05:26:12.899Z",
+    "duration": 28754,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
     "other": 0,
     "hasOther": false,
     "skipped": 0,
     "hasSkipped": false
   },
   "results": [
-    false
+    {
+      "uuid": "a6dcd6a8-efc4-4f42-9afa-4e4adef7450d",
+      "title": "",
+      "fullFile": "cypress\\integration\\04-id-subscribeProcess-unpaidOrder.js",
+      "file": "cypress\\integration\\04-id-subscribeProcess-unpaidOrder.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "da3f6429-9666-4252-a1b2-aab2fc789e2c",
+          "title": "Test Subscribe Process on Unpaid Order",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "#1 Dashboard Showing the Correct Components",
+              "fullTitle": "Test Subscribe Process on Unpaid Order #1 Dashboard Showing the Correct Components",
+              "timedOut": null,
+              "duration": 8577,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.wait(1000);\ncy.contains('Complete your payment to access the learning materials');\ncy.contains('Check your order');\ncy.get('.AvatarMenu__Toggle--kz3Cn').click();\ncy.contains('Subscriptions').should('have.attr', 'href', Cypress.env('quipper_subscription'));",
+              "err": {},
+              "uuid": "b4512235-6f0d-4ec7-b67b-e6571d2b46bb",
+              "parentUUID": "da3f6429-9666-4252-a1b2-aab2fc789e2c",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "#2 Access Subscription Page",
+              "fullTitle": "Test Subscribe Process on Unpaid Order #2 Access Subscription Page",
+              "timedOut": null,
+              "duration": 11777,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(Cypress.env('quipper_subscription'));\ncy.url().should('include', '/subscriptions'); //cy.contains('Subscriptions').should('have.attr', 'href', '/subscriptions')\ncy.contains('Orders').should('have.attr', 'href', '/orders');\ncy.contains('Redeem Activation Code').should('have.attr', 'href', '/activationcode');\ncy.contains('You do not have any active plans.');\ncy.get('.button.is-info').should('have.attr', 'href', '/plans');\ncy.contains('History').click();\ncy.wait(2000);\ncy.url().should('include', '/subscriptions/history');",
+              "err": {},
+              "uuid": "2e8a59e8-1c51-4610-9a4b-3567713a2fca",
+              "parentUUID": "da3f6429-9666-4252-a1b2-aab2fc789e2c",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "#3 Access Order Page",
+              "fullTitle": "Test Subscribe Process on Unpaid Order #3 Access Order Page",
+              "timedOut": null,
+              "duration": 5398,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(Cypress.env('quipper_subscription'));\ncy.url().should('include', '/subscriptions');",
+              "err": {},
+              "uuid": "0f70eb2e-54a9-4768-a41e-ab2717d3d850",
+              "parentUUID": "da3f6429-9666-4252-a1b2-aab2fc789e2c",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "b4512235-6f0d-4ec7-b67b-e6571d2b46bb",
+            "2e8a59e8-1c51-4610-9a4b-3567713a2fca",
+            "0f70eb2e-54a9-4768-a41e-ab2717d3d850"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 25752,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
   ],
   "meta": {
     "mocha": {

@@ -10,6 +10,7 @@ describe("Test Redeem Activation Code Process", () => {
     })
 
     it("#1 Redeem Activation Code Page Loads Successfully", () => {
+        cy.wait(1000)
         cy.get('.AvatarMenu__Toggle--kz3Cn').click()
         cy.contains('Subscriptions').should('have.attr', 'href', Cypress.env('quipper_subscription'))
         cy.visit(Cypress.env('quipper_subscription'))
