@@ -10,7 +10,7 @@ describe("Test Subscribe Process on Unpaid Order", () => {
     })
 
     it("#1 Dashboard Showing the Correct Components", () => {
-        cy.wait(1000)
+        cy.wait(4000)
         cy.contains('Complete your payment to access the learning materials')
         cy.contains('Check your order')
         cy.get('.AvatarMenu__Toggle--kz3Cn').click()
@@ -31,8 +31,112 @@ describe("Test Subscribe Process on Unpaid Order", () => {
     it("#3 Access Order Page", () => {
         cy.visit(Cypress.env('quipper_subscription'))
         cy.url().should('include', '/subscriptions')
+        cy.contains('Orders').click()
+        cy.url().should('include', '/orders')
+        cy.get('.Countdown')
+        cy.get('.OrderStatus--pending').click()
+        cy.url().should('include', '/orders/')
+    }),
+    it("#4 Validate on Data Consistency from /Orders Page to Payment Slip", () => {
+        cy.visit(Cypress.env('quipper_orders'))
+        cy.url().should('include', '/orders')
+        
+        //Get Ordered Plan Title
+        cy.get('.order-plan').then(($title) => {
+            const titel = $title.text()
+            cy.wrap(titel).as('orderedPlanName')
+        })
 
+        //Get Ordered Plan Price
+        cy.get('.order-price').then(($price) => {
+            const harga = $price.text()
+            cy.wrap(harga).as('orderedPlanPrice')
+        })
+
+        cy.get('.OrderStatus--pending').click()
+
+        //Get Plan Title from Payment Slip
+        cy.get('.AccordionSection__title').then(($nama) => {
+            const judul = $nama.text()
+            cy.wrap(judul).as('paymentSlipPlanName')
+        })
+
+        //Get Plan Price from Payment Slip
+        cy.get('.Amount__final').then(($amount) => {
+            const bayar = $amount.text()
+            cy.wrap(bayar).as('paymentSlipPlanPrice')
+        })
+
+        //Validate on Ordered Pricing Plan Title Data
+        cy.get('@orderedPlanName').then(orderedPlanName => {
+            cy.get('@paymentSlipPlanName').then(paymentSlipPlanName => {
+                expect(orderedPlanName).to.equal(paymentSlipPlanName)
+            })
+        })
+
+        //validate on Ordered Pricing Plan Price Data
+        cy.get('@orderedPlanPrice').then(orderedPlanPrice => {
+            cy.get('@paymentSlipPlanPrice').then(paymentSlipPlanPrice => {
+                expect(orderedPlanPrice).to.equal(paymentSlipPlanPrice)
+            })
+        })
+    }),
+    it("#5 Validate on Download Payment Slip PDF from Website", () => {
+        cy.visit(Cypress.env('quipper_orders'))
+        cy.url().should('include', '/orders')
+        
+        cy.get('.OrderStatus--pending').click()
+
+        cy.location('href').then((loc) => {
+            const url = loc.toString()
+            cy.wrap(url).as('URL')
+        })
+
+        cy.get('@URL').then(URL => {
+            const ID1 = URL.split("https://subscribe.quipper.com/orders/")
+            const ID = ID1[1]
+            cy.wrap(ID).as('IDPaymentSlip')
+        })
+        
+        const downloadFile = Cypress.env('quipper_dl_orders')
+        cy.get('@IDPaymentSlip').then(IDPaymentSlip => {
+            const linkDL  = downloadFile.concat(IDPaymentSlip)
+            const linkDL2 = linkDL.concat("/payment_slip")
+            cy.wrap(linkDL2).as('LinkDL')
+        })
+
+        cy.get('@LinkDL').then(LinkDL => {
+            cy.get('@IDPaymentSlip').then(IDPaymentSlip => {
+                const fileName = IDPaymentSlip.concat(".pdf")
+                cy.downloadFile(LinkDL, 'downloaded', fileName)
+                cy.wrap(fileName).as('DownloadedFileName')
+            })
+            
+        })
+        
+        //Test Read PDF File
+        // cy.get('@DownloadedFileName').then(DownloadedFileName => {
+        //     cy.task('getPdfContent', DownloadedFileName).then(content => {
+        //         const teks = content.toString()
+        //         cy.wrap(teks).as('KONTEN')
+        //     })
+        // })
+    }),
+    it("#6 Validate on Change Order Button", () => {
+        cy.visit(Cypress.env('quipper_orders'))
+        cy.url().should('include', '/orders')
+        
+        cy.get('.OrderStatus--pending').click()
+
+        cy.contains('Change order').click()
+        cy.wait(2000)
+        cy.url().should('include', '/plans')
+        cy.contains('Check Order')
+        cy.contains('Create New Order')
+
+        cy.contains('Check Order').click()
     })
+    
 
     
 })

@@ -30,7 +30,7 @@ describe("Test Subscribe Process", () => {
         //Upsell Banner
         cy.get('.UpsellBanner--2x5p2')
         cy.contains('Pilih Paket')
-        cy.contains('Coba Gratis Dulu')
+        //cy.contains('Coba Gratis Dulu')
         //Notification Banner
         cy.get('.DashboardModuleTemplate__Banner--1GLG-')
         cy.contains('Subscribe now')
@@ -79,19 +79,19 @@ describe("Test Subscribe Process", () => {
         cy.url().should('include','/plans')
 
         //Test `Subscribe` Button Each Pricing Plan
-        cy.get('[id="1808"]').within(() => {
+        cy.get('[id="1819"]').within(() => {
             cy.contains('Subscribe').click()
         })
         cy.contains('Back').click()
         
         cy.wait(1000)
-        cy.get('[id="1809"]').within(() => {
+        cy.get('[id="1818"]').within(() => {
             cy.contains('Subscribe').click()
         })
         cy.contains('Back').click()
         
         cy.wait(1000)
-        cy.get('[id="1810"]').within(() => {
+        cy.get('[id="1820"]').within(() => {
             cy.contains('Subscribe').click()
         })
         cy.contains('Back').click()
@@ -101,7 +101,7 @@ describe("Test Subscribe Process", () => {
         cy.url().should('include','/plans')
 
         //Test the `Payment Method Page` Integration with Pricing 
-        cy.get('[id="1808"]').within(() => {
+        cy.get('[id="1819"]').within(() => {
             //Get the Pricing Plan Title from Select a Plan Page
             cy.get('.PricingPlan__title').then(($title) => {
                 const txt = $title.text()
@@ -145,7 +145,7 @@ describe("Test Subscribe Process", () => {
         cy.url().should('include','/plans')
 
         //Test the `Payment Method Page` Integration with Pricing 
-        cy.get('[id="1809"]').within(() => {
+        cy.get('[id="1818"]').within(() => {
             //Get the Pricing Plan Title from Select a Plan Page
             cy.get('.PricingPlan__title').then(($title) => {
                 const txt = $title.text()
@@ -189,7 +189,7 @@ describe("Test Subscribe Process", () => {
         cy.url().should('include','/plans')
 
         //Test the `Payment Method Page` Integration with Pricing 
-        cy.get('[id="1810"]').within(() => {
+        cy.get('[id="1820"]').within(() => {
             //Get the Pricing Plan Title from Select a Plan Page
             cy.get('.PricingPlan__title').then(($title) => {
                 const txt = $title.text()
