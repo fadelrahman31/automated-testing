@@ -18,6 +18,7 @@ describe("Test Subscribe Process on Unpaid Order", () => {
     }),
     it("#2 Access Subscription Page", () => {
         cy.visit(Cypress.env('quipper_subscription'))
+        cy.wait(1000)
         cy.url().should('include', '/subscriptions')
         //cy.contains('Subscriptions').should('have.attr', 'href', '/subscriptions')
         cy.contains('Orders').should('have.attr', 'href', '/orders')
@@ -31,6 +32,7 @@ describe("Test Subscribe Process on Unpaid Order", () => {
     it("#3 Access Order Page", () => {
         cy.visit(Cypress.env('quipper_subscription'))
         cy.url().should('include', '/subscriptions')
+        cy.wait(1000)
         cy.contains('Orders').click()
         cy.url().should('include', '/orders')
         cy.get('.Countdown')
@@ -40,7 +42,7 @@ describe("Test Subscribe Process on Unpaid Order", () => {
     it("#4 Validate on Data Consistency from /Orders Page to Payment Slip", () => {
         cy.visit(Cypress.env('quipper_orders'))
         cy.url().should('include', '/orders')
-        
+        cy.wait(1000)
         //Get Ordered Plan Title
         cy.get('.order-plan').then(($title) => {
             const titel = $title.text()
@@ -84,6 +86,7 @@ describe("Test Subscribe Process on Unpaid Order", () => {
     it("#5 Validate on Download Payment Slip PDF from Website", () => {
         cy.visit(Cypress.env('quipper_orders'))
         cy.url().should('include', '/orders')
+        cy.wait(1000)
         
         cy.get('.OrderStatus--pending').click()
 
@@ -109,20 +112,95 @@ describe("Test Subscribe Process on Unpaid Order", () => {
             cy.get('@IDPaymentSlip').then(IDPaymentSlip => {
                 const fileName = IDPaymentSlip.concat(".pdf")
                 cy.downloadFile(LinkDL, 'downloaded', fileName)
-                cy.wrap(fileName).as('DownloadedFileName')
+                //cy.wrap(fileName).as('DownloadedFileName')
             })
             
         })
         
-        //Test Read PDF File
+        // Test Read PDF File
         // cy.get('@DownloadedFileName').then(DownloadedFileName => {
         //     cy.task('getPdfContent', DownloadedFileName).then(content => {
         //         const teks = content.toString()
         //         cy.wrap(teks).as('KONTEN')
         //     })
         // })
+
+            // cy.task('getPdfContent', '2076398.pdf').then(content => {
+            //     const teks = content.toString()
+            //     cy.wrap(teks).as('KONTEN')
+            // })
+        
     }),
-    it("#6 Validate on Change Order Button", () => {
+    it("#6 Validate on Payment Slip PDF Data from Website", () => {
+        cy.visit(Cypress.env('quipper_orders'))
+        cy.url().should('include', '/orders')
+        
+        cy.get('.OrderStatus--pending').click()
+
+        //Get Pricing Plan Title
+        cy.get('.AccordionSection__title').then(($judul) => {
+            const planTitle = $judul.text()
+            cy.wrap(planTitle).as('PricingPlanTitle')
+        })
+
+        //Get Pricing Plan Price
+        cy.get('.Amount__final').then(($harga) => {
+            const planPrice = $harga.text()
+            cy.wrap(planPrice).as('PricingPlanPrice')
+        })
+
+        //Get Payment Code
+        cy.get('.PaymentCode__transaction-ref').then(($code) => {
+            const planPayCode = $code.text()
+            cy.wrap(planPayCode).as('PaymentCode')
+        })
+
+        cy.location('href').then((loc) => {
+            const url = loc.toString()
+            cy.wrap(url).as('URL')
+        })
+
+        cy.get('@URL').then(URL => {
+            const ID1 = URL.split("https://subscribe.quipper.com/orders/")
+            const ID = ID1[1]
+            cy.wrap(ID).as('IDPaymentSlip')
+        })
+
+        
+        cy.get('@IDPaymentSlip').then(IDPaymentSlip => {
+            const fileName = IDPaymentSlip.concat(".pdf")
+            cy.wrap(fileName).as('DownloadedFileName')
+        })
+            
+        cy.get('@DownloadedFileName').then(DownloadedFileName => {
+            cy.task('getPdfContent', DownloadedFileName).then(content => {
+                const teks = content.toString()
+                cy.wrap(teks).as('PDFContent')
+            })
+        })
+
+        //Validate Pricing Plan Title on PDF
+        cy.get('@PricingPlanTitle').then(PricingPlanTitle => {
+            cy.get('@PDFContent').then(PDFContent => {
+                expect(PDFContent).to.contain(PricingPlanTitle)
+            })
+        })
+
+        cy.get('@PricingPlanPrice').then(PricingPlanPrice => {
+            cy.get('@PDFContent').then(PDFContent => {
+                expect(PDFContent).to.contain(PricingPlanPrice)
+            })
+        })
+
+        cy.get('@PaymentCode').then(PaymentCode => {
+            cy.get('@PDFContent').then(PDFContent => {
+                expect(PDFContent).to.contain(PaymentCode)
+            })
+        })
+
+
+    }),
+    it("#7 Validate on Change Order Button", () => {
         cy.visit(Cypress.env('quipper_orders'))
         cy.url().should('include', '/orders')
         

@@ -21,12 +21,23 @@ const fs = require('fs')
 const path = require('path')
 const pdf = require('pdf-parse');
 
-const pdfParse = async (pdfName) => {
-  const pdfPathName = path.join("./downloaded/", pdfName)
-  let dataBuffer = fs.readFileSync(pdfPathName);
-  await pdf(dataBuffer).then(function(data) {
-    return data.info;
-  })
+
+function pdfParsing(pdfName) {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      const pdfPathName = path.join("./downloaded/", pdfName);
+      let dataBuffer = fs.readFileSync(pdfPathName);
+      pdf(dataBuffer).then(function(data) {
+        var out = data.text;
+        resolve(out);
+      })
+    }, 2000);
+  });
+}
+
+async function output(pdfName) {
+  const teks = await pdfParsing(pdfName);
+  return teks;
 }
 
 
@@ -36,7 +47,8 @@ module.exports = (on, config) => {
   on('task', {downloadFile})
   on('task', {
     getPdfContent (pdfName) {
-      return String(pdfParse(pdfName))
+      const extract = output(pdfName);
+      return extract;
     }
   })
 }
