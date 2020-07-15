@@ -40,6 +40,7 @@ describe("Test Subscribe Process", () => {
         cy.get('.AvatarMenu__Toggle--kz3Cn').click()
         cy.contains('Profile').click()
         cy.url().should('include', '/en/settings/profile')
+        cy.wait(1000)
         cy.contains('Home').click()
         cy.url().should('include', '/dashboard')
         cy.wait(1000)

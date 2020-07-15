@@ -1,4 +1,4 @@
-describe("Test Payment Process on Unpaid Order", () => {
+describe("Test Subscribe Process on Unpaid Order - EMBED Page", () => {
     beforeEach(() => {
         cy.visit(Cypress.env('quipper_login_page'))
         cy.get('[aria-label="Username or email"]')
@@ -9,9 +9,10 @@ describe("Test Payment Process on Unpaid Order", () => {
         //cy.url().should('include', '/dashboard')
     })
 
-    //TO-DO
-    it("#1 Try to check the order status", () => {
-      cy.visit(Cypress.env('quipper_subscription'))
-    })
-
+    it("#1 Access Order Embed Page", () => {
+      cy.visit(Cypress.env('quipper_latest_order_embed'))
+      cy.wait(1000)
+      cy.url().should('include', '/embed/orders')
+  })
+    
 })

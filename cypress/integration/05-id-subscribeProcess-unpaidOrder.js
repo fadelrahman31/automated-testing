@@ -207,7 +207,7 @@ describe("Test Subscribe Process on Unpaid Order", () => {
         cy.get('.OrderStatus--pending').click()
 
         cy.contains('Change order').click()
-        cy.wait(2000)
+        cy.wait(1000)
         cy.url().should('include', '/plans')
         cy.contains('Check Order')
         cy.contains('Create New Order')
