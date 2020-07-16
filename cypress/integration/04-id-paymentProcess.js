@@ -11,14 +11,14 @@ describe("Test Payment Process", () => {
 
     it("#1 Payment Method Page Successfully Loads", () => {
         cy.visit(Cypress.env('quipper_plans'))
-        cy.get('[id="1808"]').within(() => {
+        cy.get('[id="1818"]').within(() => {
             cy.contains('Subscribe').click()
         })
         cy.url().should('include', '/payment/methods')
     }),
     it("#2 Payment Method Page Showing Correct Components", () => {
         cy.visit(Cypress.env('quipper_plans'))
-        cy.get('[id="1808"]').within(() => {
+        cy.get('[id="1818"]').within(() => {
             cy.contains('Subscribe').click()
         })
         cy.wait(1000)
@@ -33,7 +33,6 @@ describe("Test Payment Process", () => {
         cy.get('[value="BNI"]')
         cy.get('[value="MANDIRI"]')
         cy.get('[value="PERMATA"]')
-        cy.get('[value="DANAMON"]')
         cy.get('[value="CIMBVA"]')
         cy.get('[value="BIIVA"]')
         cy.get('[value="BANK_OTHER"]')
@@ -44,7 +43,7 @@ describe("Test Payment Process", () => {
     }),
     it("#3 Validate Alfamart as Payment Method", () => {
         cy.visit(Cypress.env('quipper_plans'))
-        cy.get('[id="1808"]').within(() => {
+        cy.get('[id="1818"]').within(() => {
             cy.contains('Subscribe').click()
         })
 
@@ -60,7 +59,7 @@ describe("Test Payment Process", () => {
     }),
     it("#4 Validate Indomaret as Payment Method", () => {
         cy.visit(Cypress.env('quipper_plans'))
-        cy.get('[id="1808"]').within(() => {
+        cy.get('[id="1818"]').within(() => {
             cy.contains('Subscribe').click()
         })
 
@@ -76,7 +75,7 @@ describe("Test Payment Process", () => {
     }),
     it("#5 Validate BNI as Payment Method", () => {
         cy.visit(Cypress.env('quipper_plans'))
-        cy.get('[id="1808"]').within(() => {
+        cy.get('[id="1818"]').within(() => {
             cy.contains('Subscribe').click()
         })
         cy.contains('Bank Transfer').click()
@@ -93,7 +92,7 @@ describe("Test Payment Process", () => {
     }),
     it("#6 Validate Mandiri as Payment Method", () => {
         cy.visit(Cypress.env('quipper_plans'))
-        cy.get('[id="1808"]').within(() => {
+        cy.get('[id="1818"]').within(() => {
             cy.contains('Subscribe').click()
         })
         cy.contains('Bank Transfer').click()
@@ -110,7 +109,7 @@ describe("Test Payment Process", () => {
     }),
     it("#7 Validate Permata Bank as Payment Method", () => {
         cy.visit(Cypress.env('quipper_plans'))
-        cy.get('[id="1808"]').within(() => {
+        cy.get('[id="1818"]').within(() => {
             cy.contains('Subscribe').click()
         })
         cy.contains('Bank Transfer').click()
@@ -125,26 +124,9 @@ describe("Test Payment Process", () => {
             expect(chosenMethod).to.equal("Bank Permata")
         })
     }),
-    it("#8 Validate Danamon as Payment Method", () => {
+    it("#8 Validate CIMB Niaga as Payment Method", () => {
         cy.visit(Cypress.env('quipper_plans'))
-        cy.get('[id="1808"]').within(() => {
-            cy.contains('Subscribe').click()
-        })
-        cy.contains('Bank Transfer').click()
-        
-        //Choose Alfamart as Payment Method
-        cy.get('[value="DANAMON"]').click()
-        cy.get('.PaymentMethodName').then(($chosenMethod) => {
-            const chosen = $chosenMethod.text()
-            cy.wrap(chosen).as('chosenMethod')
-        })
-        cy.get('@chosenMethod').then(chosenMethod => {
-            expect(chosenMethod).to.equal("Bank Danamon")
-        })
-    }),
-    it("#9 Validate CIMB Niaga as Payment Method", () => {
-        cy.visit(Cypress.env('quipper_plans'))
-        cy.get('[id="1808"]').within(() => {
+        cy.get('[id="1818"]').within(() => {
             cy.contains('Subscribe').click()
         })
         cy.contains('Bank Transfer').click()
@@ -159,9 +141,9 @@ describe("Test Payment Process", () => {
             expect(chosenMethod).to.equal("Bank CIMB Niaga")
         })
     }),
-    it("#10 Validate Maybank as Payment Method", () => {
+    it("#9 Validate Maybank as Payment Method", () => {
         cy.visit(Cypress.env('quipper_plans'))
-        cy.get('[id="1808"]').within(() => {
+        cy.get('[id="1818"]').within(() => {
             cy.contains('Subscribe').click()
         })
         cy.contains('Bank Transfer').click()
@@ -176,9 +158,9 @@ describe("Test Payment Process", () => {
             expect(chosenMethod).to.equal("Bank Maybank")
         })
     }),
-    it("#11 Validate Other Bank as Payment Method", () => {
+    it("#10 Validate Other Bank as Payment Method", () => {
         cy.visit(Cypress.env('quipper_plans'))
-        cy.get('[id="1808"]').within(() => {
+        cy.get('[id="1818"]').within(() => {
             cy.contains('Subscribe').click()
         })
         cy.contains('Bank Transfer').click()
@@ -193,9 +175,9 @@ describe("Test Payment Process", () => {
             expect(chosenMethod).to.equal("Other Banks")
         })
     }),
-    it("#12 Test on Transitions to Payment Inforation Page", () => {
+    it("#11 Test on Transitions to Payment Inforation Page", () => {
         cy.visit(Cypress.env('quipper_plans'))
-        cy.get('[id="1808"]').within(() => {
+        cy.get('[id="1818"]').within(() => {
             cy.contains('Subscribe').click()
         })
         
@@ -205,9 +187,9 @@ describe("Test Payment Process", () => {
         //On the Payment Information Page
         cy.url().should('include', '/payment/information')
     }),
-    it("#13 Payment Information Page Showing Correct Components", () => {
+    it("#12 Payment Information Page Showing Correct Components", () => {
         cy.visit(Cypress.env('quipper_plans'))
-        cy.get('[id="1808"]').within(() => {
+        cy.get('[id="1818"]').within(() => {
             cy.contains('Subscribe').click()
         })
 
@@ -225,9 +207,9 @@ describe("Test Payment Process", () => {
         cy.get('[name = "phone"]')
         cy.contains('Complete Payment')
     }),
-    it("#14 Input Field Validation - Email", () => {
+    it("#13 Input Field Validation - Email", () => {
         cy.visit(Cypress.env('quipper_plans'))
-        cy.get('[id="1808"]').within(() => {
+        cy.get('[id="1818"]').within(() => {
             cy.contains('Subscribe').click()
         })
 

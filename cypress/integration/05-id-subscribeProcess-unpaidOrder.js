@@ -203,7 +203,7 @@ describe("Test Subscribe Process on Unpaid Order", () => {
     it("#7 Validate on Change Order Button", () => {
         cy.visit(Cypress.env('quipper_orders'))
         cy.url().should('include', '/orders')
-        
+        cy.wait(1000)
         cy.get('.OrderStatus--pending').click()
 
         cy.contains('Change order').click()

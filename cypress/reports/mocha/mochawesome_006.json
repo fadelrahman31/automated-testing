@@ -1,0 +1,145 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2020-07-16T03:26:43.095Z",
+    "end": "2020-07-16T03:27:46.617Z",
+    "duration": 63522,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "a30d39fa-bd75-4d1b-8007-346fc184d64f",
+      "title": "",
+      "fullFile": "cypress\\integration\\07-id-redeemActivationCode.js",
+      "file": "cypress\\integration\\07-id-redeemActivationCode.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "d35a355b-18a1-4df2-9c04-e19b27d7475c",
+          "title": "Test Redeem Activation Code Process",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "#1 Redeem Activation Code Page Loads Successfully",
+              "fullTitle": "Test Redeem Activation Code Process #1 Redeem Activation Code Page Loads Successfully",
+              "timedOut": null,
+              "duration": 26043,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.wait(1000);\ncy.get('.AvatarMenu__Toggle--kz3Cn').click();\ncy.contains('Subscriptions').should('have.attr', 'href', Cypress.env('quipper_subscription'));\ncy.visit(Cypress.env('quipper_subscription'));\ncy.url().should('include', '/plans');\ncy.get('.PricingPlansWeb__redeem_activation').click();\ncy.url().should('include', '/activationcode');",
+              "err": {},
+              "uuid": "4c10f3ae-7f4e-4f03-a4a5-4f10c6746ecb",
+              "parentUUID": "d35a355b-18a1-4df2-9c04-e19b27d7475c",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "#2 Page Showing Correct Components",
+              "fullTitle": "Test Redeem Activation Code Process #2 Page Showing Correct Components",
+              "timedOut": null,
+              "duration": 18547,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('.AvatarMenu__Toggle--kz3Cn').click();\ncy.contains('Subscriptions').should('have.attr', 'href', Cypress.env('quipper_subscription'));\ncy.visit(Cypress.env('quipper_subscription'));\ncy.url().should('include', '/plans');\ncy.get('.PricingPlansWeb__redeem_activation').click(); //Test the correct components\ncy.get('[name=\"activationCode\"]');\ncy.contains('Activate');\ncy.contains('Back to learning app');\ncy.contains('Subscriptions').should('have.attr', 'href', '/subscriptions');\ncy.contains('Orders').should('have.attr', 'href', '/orders');",
+              "err": {},
+              "uuid": "df64492f-b6be-4b39-b0bd-364e6f04b664",
+              "parentUUID": "d35a355b-18a1-4df2-9c04-e19b27d7475c",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "#3 Input Field Validation - Activation Code",
+              "fullTitle": "Test Redeem Activation Code Process #3 Input Field Validation - Activation Code",
+              "timedOut": null,
+              "duration": 15799,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(Cypress.env('quipper_subscription'));\ncy.url().should('include', '/plans');\ncy.get('.PricingPlansWeb__redeem_activation').click();\ncy.get('[name = \"activationCode\"]').type('ASDA123');\ncy.contains('Activate').should('be.disabled');\ncy.get('[name=\"activationCode\"]').type('{del}{selectall}{backspace}');\ncy.get('[name=\"activationCode\"]').type('ASDASK233SDAS12S');\ncy.contains('Activate').should('not.be.disabled');",
+              "err": {},
+              "uuid": "b20a83d4-53a7-4e04-b99c-3520e54658c0",
+              "parentUUID": "d35a355b-18a1-4df2-9c04-e19b27d7475c",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "4c10f3ae-7f4e-4f03-a4a5-4f10c6746ecb",
+            "df64492f-b6be-4b39-b0bd-364e6f04b664",
+            "b20a83d4-53a7-4e04-b99c-3520e54658c0"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 60389,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.1.1"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/reports/mocha",
+        "quite": true,
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "5.1.0"
+    }
+  }
+}
