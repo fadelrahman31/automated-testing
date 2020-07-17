@@ -175,7 +175,7 @@ describe("Test Payment Process", () => {
             expect(chosenMethod).to.equal("Other Banks")
         })
     }),
-    it("#11 Test on Transitions to Payment Inforation Page", () => {
+    it("#11 Test on Transitions to Payment Information Page", () => {
         cy.visit(Cypress.env('quipper_plans'))
         cy.get('[id="1818"]').within(() => {
             cy.contains('Subscribe').click()

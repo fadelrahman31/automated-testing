@@ -47,7 +47,7 @@ describe("Test Subscribe Process", () => {
         cy.get('.AvatarMenu__Toggle--kz3Cn').click()
         cy.contains('Subscriptions').should('have.attr', 'target', '_blank')
     }),
-    it("#4 Upsell Banner Functionality",() => {
+    it("#4 Campaign Banner Functionality",() => {
         cy.contains('Pilih Paket').should('have.attr', 'href', Cypress.env('quipper_upsell_short'))
         cy.visit(Cypress.env('quipper_upsell'))
         cy.url().should('include','/plans')

@@ -23,6 +23,12 @@
       "mochawesome": "^6.1.1",
       "mochawesome-merge": "^4.1.0",
       "mochawesome-report-generator": "^5.1.0"
+    },
+    "dependencies": {
+      "crypto": "^1.0.1",
+      "cypress-downloadfile": "^1.2.0",
+      "path": "^0.12.7",
+      "pdf-parse": "^1.1.1"
     }
   }
   
