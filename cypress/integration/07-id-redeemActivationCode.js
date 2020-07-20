@@ -36,6 +36,7 @@ describe("Test Redeem Activation Code Process", () => {
         cy.visit(Cypress.env('quipper_subscription'))
         cy.url().should('include', '/plans')
         cy.get('.PricingPlansWeb__redeem_activation').click()
+        cy.wait(1000)
 
         cy.get('[name = "activationCode"]')
           .type('ASDA123')

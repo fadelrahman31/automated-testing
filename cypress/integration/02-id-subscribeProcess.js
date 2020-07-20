@@ -48,17 +48,20 @@ describe("Test Subscribe Process", () => {
         cy.contains('Subscriptions').should('have.attr', 'target', '_blank')
     }),
     it("#4 Campaign Banner Functionality",() => {
+        cy.wait(1000)
         cy.contains('Pilih Paket').should('have.attr', 'href', Cypress.env('quipper_upsell_short'))
         cy.visit(Cypress.env('quipper_upsell'))
         cy.url().should('include','/plans')
     }),
     it("#5 Susbcribe Now Banner Functionality", () => {
+        cy.wait(1000)
         cy.contains('Subscribe now').should('have.attr', 'href', Cypress.env('quipper_plans'))
         cy.visit(Cypress.env('quipper_plans'))
         cy.url().should('include', '/plans')
     }),
     it("#6 Select a Plan Page Functionality", () => {
         cy.visit(Cypress.env('quipper_plans'))
+        cy.wait(500)
         cy.url().should('include','/plans')
 
         //Test the `Select a Plan` Page
@@ -78,6 +81,7 @@ describe("Test Subscribe Process", () => {
     it("#7 Subscribe Button Functionality ", () => {   
         cy.visit(Cypress.env('quipper_plans'))
         cy.url().should('include','/plans')
+        cy.wait(500)
 
         //Test `Subscribe` Button Each Pricing Plan
         cy.get('[id="1819"]').within(() => {
@@ -100,6 +104,7 @@ describe("Test Subscribe Process", () => {
     it("#8 Paket Intensif SMA Integration with Payment Method Page", () => {
         cy.visit(Cypress.env('quipper_plans'))
         cy.url().should('include','/plans')
+        cy.wait(500)
 
         //Test the `Payment Method Page` Integration with Pricing 
         cy.get('[id="1819"]').within(() => {
@@ -144,6 +149,7 @@ describe("Test Subscribe Process", () => {
     it("#9 Paket Regular SMA Integration with Payment Method Page", () => {
         cy.visit(Cypress.env('quipper_plans'))
         cy.url().should('include','/plans')
+        cy.wait(500)
 
         //Test the `Payment Method Page` Integration with Pricing 
         cy.get('[id="1818"]').within(() => {
@@ -188,6 +194,7 @@ describe("Test Subscribe Process", () => {
     it("#10 Paket Intensif SMA + 3 Bulan Masterclass Integration with Payment Method Page", () => {
         cy.visit(Cypress.env('quipper_plans'))
         cy.url().should('include','/plans')
+        cy.wait(500)
 
         //Test the `Payment Method Page` Integration with Pricing 
         cy.get('[id="1820"]').within(() => {

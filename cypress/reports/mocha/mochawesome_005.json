@@ -2,14 +2,14 @@
   "stats": {
     "suites": 1,
     "tests": 2,
-    "passes": 2,
+    "passes": 1,
     "pending": 0,
-    "failures": 0,
-    "start": "2020-07-16T03:25:57.910Z",
-    "end": "2020-07-16T03:26:34.447Z",
-    "duration": 36537,
+    "failures": 1,
+    "start": "2020-07-20T06:55:50.636Z",
+    "end": "2020-07-20T06:56:16.077Z",
+    "duration": 25441,
     "testsRegistered": 2,
-    "passPercent": 100,
+    "passPercent": 50,
     "pendingPercent": 0,
     "other": 0,
     "hasOther": false,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "94405a07-b6c2-49bc-be50-0fde292374b6",
+      "uuid": "0a1903a3-ca8c-4991-9b17-748a2e846832",
       "title": "",
       "fullFile": "cypress\\integration\\06-id-subscribeProcess-unpaidOrder-embed.js",
       "file": "cypress\\integration\\06-id-subscribeProcess-unpaidOrder-embed.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "5f03c83b-64fa-4390-9094-60fba3395959",
+          "uuid": "3c5d6d9a-bbb4-4fb3-8c1b-0f855a59246f",
           "title": "Test Subscribe Process on Unpaid Order - EMBED Page",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "#1 Access Order Embed Page",
               "fullTitle": "Test Subscribe Process on Unpaid Order - EMBED Page #1 Access Order Embed Page",
               "timedOut": null,
-              "duration": 16462,
+              "duration": 10837,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -47,8 +47,8 @@
               "context": null,
               "code": "cy.visit(Cypress.env('quipper_latest_order_embed'));\ncy.wait(1000);\ncy.url().should('include', '/embed/orders');",
               "err": {},
-              "uuid": "aa0d7405-232b-49c0-a8f1-4ed293e4d8e7",
-              "parentUUID": "5f03c83b-64fa-4390-9094-60fba3395959",
+              "uuid": "29a90e8a-6b00-4a51-826c-b98d1919a868",
+              "parentUUID": "3c5d6d9a-bbb4-4fb3-8c1b-0f855a59246f",
               "isHook": false,
               "skipped": false
             },
@@ -56,30 +56,35 @@
               "title": "#2 Validate on Data Consistency from /Orders Page to Embed Payment Preview Page",
               "fullTitle": "Test Subscribe Process on Unpaid Order - EMBED Page #2 Validate on Data Consistency from /Orders Page to Embed Payment Preview Page",
               "timedOut": null,
-              "duration": 17408,
-              "state": "passed",
-              "speed": "slow",
-              "pass": true,
-              "fail": false,
+              "duration": 11745,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
               "pending": false,
               "context": null,
               "code": "cy.visit(Cypress.env('quipper_orders'));\ncy.wait(1000); //Get Ordered Plan Title\ncy.get('.order-plan').then(function ($title) {\n  var titel = $title.text();\n  cy.wrap(titel).as('orderedPlanName');\n}); //Get Ordered Plan Price\ncy.get('.order-price').then(function ($price) {\n  var harga = $price.text();\n  cy.wrap(harga).as('orderedPlanPrice');\n}); //Visit Embed Payment Preview Page\ncy.visit(Cypress.env('quipper_latest_order_embed'));\ncy.wait(1000);\ncy.get('@orderedPlanName').then(function (orderedPlanName) {\n  cy.get('@orderedPlanPrice').then(function (orderedPlanPrice) {\n    cy.get('.AccordionSection__title').then(function ($content) {\n      var teks = $content.text();\n      expect(teks).to.equal(orderedPlanName);\n    });\n    cy.get('.Amount__final').then(function ($harga) {\n      var price = $harga.text();\n      expect(price).to.equal(orderedPlanPrice);\n    });\n  });\n});",
-              "err": {},
-              "uuid": "c0d41eb4-2cfd-4ec1-9f3a-476f8b8e07c9",
-              "parentUUID": "5f03c83b-64fa-4390-9094-60fba3395959",
+              "err": {
+                "message": "AssertionError: Timed out retrying: Expected to find element: `.order-plan`, but never found it.",
+                "estack": "AssertionError: Timed out retrying: Expected to find element: `.order-plan`, but never found it.\n    at Context.eval (https://learn.quipper.com/__cypress/tests?p=cypress\\integration\\06-id-subscribeProcess-unpaidOrder-embed.js:19:8)",
+                "diff": null
+              },
+              "uuid": "700b4053-6c7a-43b6-ac66-51aeb770d750",
+              "parentUUID": "3c5d6d9a-bbb4-4fb3-8c1b-0f855a59246f",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "aa0d7405-232b-49c0-a8f1-4ed293e4d8e7",
-            "c0d41eb4-2cfd-4ec1-9f3a-476f8b8e07c9"
+            "29a90e8a-6b00-4a51-826c-b98d1919a868"
           ],
-          "failures": [],
+          "failures": [
+            "700b4053-6c7a-43b6-ac66-51aeb770d750"
+          ],
           "pending": [],
           "skipped": [],
-          "duration": 33870,
+          "duration": 22582,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
