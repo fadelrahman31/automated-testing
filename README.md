@@ -20,9 +20,10 @@ $ cd automated-testing
 ```
 
 #### Determine your OS
-If your PC is running `Windows OS`, **skip** this step. But if you're running `MacOS` : 
-- **Rename** `package.json` to `package-json-windows`
-- **Rename** `package-json-mac` to `package.json`
+Based on your computer OS, run **only one** of the following scripts according to your OS:
+- `Windows OS`, double click on `using-windows.bat`
+- `MacOS`, double click on `using-mac.bat`
+
 
 #### Install the Required Dependencies
 ```bash
