@@ -15,7 +15,15 @@ pipeline {
         stage('test'){
             steps{
                 script{
-                    bat label: 'Run Test', script: '''npx cypress run '''
+                    bat label: 'Run Test', script: '''npm run test '''
+                }
+            }
+        }
+
+        stage('result'){
+            steps{
+                script{
+                    publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'cypress/reports/mochareports', reportFiles: 'report.html', reportName: 'Test Report', reportTitles: ''])
                 }
             }
         }
