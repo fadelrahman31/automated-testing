@@ -6,8 +6,8 @@ pipeline {
         stage('build'){
             steps{
                 script {
-	                bat label: 'Install NPM', script: '''npm install'''
-	                bat label: 'Install Cypress', script: '''npm install cypress --save-dev'''
+	                sh 'npm install'
+	                sh 'npm install cypress --save-dev'
                 }
             }
         }
@@ -15,18 +15,13 @@ pipeline {
         stage('test'){
             steps{
                 script{
-                    bat label: 'Run Test', script: '''npm run test '''
+                    wrap([$class: 'Xvfb']){
+                        echo 'testtest'  
+                    }
                 }
             }
         }
 
-        stage('result'){
-            steps{
-                script{
-                    publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'cypress/reports/mochareports', reportFiles: 'report.html', reportName: 'Test Report', reportTitles: ''])
-                }
-            }
-        }
     }
 }
 
